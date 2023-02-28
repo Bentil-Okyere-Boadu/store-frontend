@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Product } from 'src/product_model';
+import { Product } from 'src/models/product_model';
 import * as jsonData from '../assets/data.json';
 
 @Injectable({
@@ -16,6 +16,14 @@ export class ProductService {
 
   getProducts() {
     return this.products;
+  }
+
+  getProduct(id: number) {
+    const product = this.products.find(function (prod) { 
+      return prod.id === id
+    })
+   
+    return product
   }
 
 }

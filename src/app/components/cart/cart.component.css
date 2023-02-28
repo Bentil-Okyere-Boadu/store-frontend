@@ -1,26 +1,3 @@
-img {
-    width: 100px;
-    border-radius: 10px;
-  }
-  
-  .form-margin {
-    margin-bottom: 12px;
-  }
-  
-  .cart-item {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 20px;
-  }
-  
-  .cart-item-details {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: left;
-    margin-left: 80px;
-  }
-  
   .number-input {
     width: 80px;
     text-align: center;
@@ -28,18 +5,29 @@ img {
   
   .cart-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    margin-top: 64px;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
   }
-  
-  .cart-panel {
-    margin-left: 50px;
-    margin-right: 50px;
+
+  .cart-items{
+    width: 70%;
+    text-align: center;
   }
-  
-  .empty-cart-message {
+
+  .inner-container {
     display: flex;
     justify-content: center;
-    margin-top: 64px;
+    flex-direction: column;
+  }
+
+  .inner-container p {
+    padding: 1rem;
+  }
+
+  .cancel-btn{
+    background-color: red;
+    margin-left: 1rem;
   }

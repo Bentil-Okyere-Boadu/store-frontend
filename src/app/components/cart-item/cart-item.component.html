@@ -1,0 +1,18 @@
+<div class="cart-item-container">
+    <div class="cart-item">
+        <div class="img-container">
+            <img alt="" src="{{product.product.url}}"/>
+        </div>
+        <div class="cart-item-details">
+            <p>{{product.product.name}}</p>
+            <p>{{product.product.description}}</p>
+            <p>{{product.product.price}}</p>
+            <p>Quantity: {{product.quantity}}</p>
+            <br/>
+            <p>Cost: {{product.product.price}} x {{product.quantity}} = {{product.total}}</p>
+        </div>
+        <div class="cancel-btn">
+            <button (click)="removeProduct()">x</button>
+        </div>
+    </div>
+</div>

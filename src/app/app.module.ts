@@ -9,6 +9,8 @@ import { ProductComponent } from './components/product/product.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +20,13 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
     ProductComponent,
     ProductDetailsComponent,
     ProductListComponent,
-    NavbarComponent
+    NavbarComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

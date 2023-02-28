@@ -5,15 +5,15 @@
     <div class="info">
         <div>
             <h4>{{product.name}}</h4>
-            <a routerLink="/product">Details</a>
+            <a [routerLink]="['/product', product.id]">Details</a>
         </div>
         <div>
             <p>Price</p>
             <p>{{product.price}}</p>
         </div>
         <div>
-            <input type="number" class="select-input"/>
-            <button>Add to Cart</button>
+            <input type="number" class="select-input" [formControl]="quantity"/>
+            <button (click)="addToCart()">Add to Cart</button>
         </div>
     </div>
     

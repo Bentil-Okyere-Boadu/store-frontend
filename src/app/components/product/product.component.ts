@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Product } from 'src/product_model';
+import { FormControl } from '@angular/forms';
+import { Product } from 'src/models/product_model';
+import { CartService } from 'src/services/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -8,8 +10,9 @@ import { Product } from 'src/product_model';
 })
 export class ProductComponent {
   @Input() product: Product
+  quantity = new FormControl(0)
 
-  constructor(){
+  constructor(private cartService: CartService){
     this.product = {
       id: 0,
       description: '',
@@ -17,5 +20,13 @@ export class ProductComponent {
       name: '',
       url: ''
     }
+
+    this.quantity.setValue(0)
   }
+
+  addToCart():void {
+    this.cartService.addToCart(this.product, this.quantity.value || 0)
+  }
+
+  
 }

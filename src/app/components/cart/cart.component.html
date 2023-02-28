@@ -1,1 +1,14 @@
-<p>cart works!</p>
+<div class="cart-container">
+    <div class="cart-items">
+        <p *ngIf="cart.length < 1" [ngStyle]="{'padding': '1.5rem'}">Cart is empty.</p>
+        <app-cart-item *ngFor="let product of cart" [product]="product"></app-cart-item>
+    </div>
+    <div class="inner-container">
+        <p>Total: {{total}}</p>
+        <div>
+            <button routerLink="/confirmation">Place Order</button>
+            <button class="cancel-btn" (click)="cancelOrder()">Cancel Order</button>
+        </div>
+    </div>
+    
+</div>
