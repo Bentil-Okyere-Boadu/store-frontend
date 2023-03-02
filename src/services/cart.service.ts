@@ -10,8 +10,6 @@ export class CartService {
   cart: CartItem[] = [];
   total: number = 0;
 
-  constructor() {}
-
   addToCart (product: Product, quantity: number): void {
     const total: number = this._itemTotal(product, quantity)
     

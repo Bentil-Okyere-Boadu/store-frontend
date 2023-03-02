@@ -1,8 +1,14 @@
 <div class="detail-container">
     <div>
-        <p>product-details works!</p>
+        <img src={{product.url}} class="product-image" alt={{product.name}}/>
+    </div>
+    <div class="product-details">
         <p>Product name: {{product.name}}</p>
         <p>Description: {{product.description}}</p>
         <p>Price: {{product.price}}</p>
+        <div>
+            <input type="number" min="0" class="select-input" [formControl]="quantity"/>
+            <button (click)="addToCart()">Add to Cart</button>
+        </div>
     </div>
 </div>

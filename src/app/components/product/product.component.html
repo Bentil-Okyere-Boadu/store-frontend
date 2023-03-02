@@ -12,7 +12,7 @@
             <p>{{product.price}}</p>
         </div>
         <div>
-            <input type="number" class="select-input" [formControl]="quantity"/>
+            <input type="number" min="0" class="select-input" [formControl]="quantity"/>
             <button (click)="addToCart()">Add to Cart</button>
         </div>
     </div>

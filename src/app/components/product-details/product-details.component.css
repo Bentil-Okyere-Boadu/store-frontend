@@ -2,16 +2,24 @@ img {
     border-radius: 10px;
     width: 320px;
   }
+
+  .product-image {      
+    list-style-type: none;
+    width: 290px;
+    padding: 20px;
+  } 
   
   .select-input {
-    width: 108px; 
-    margin-bottom: 8px;
+    width: 50px; 
+    margin-right: 8px;
   }
   
   .detail-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
+    padding: 1.5rem;
   }
   
   .detail-item {
@@ -21,4 +29,12 @@ img {
   
   .back-link {
     margin-top: 8px;
+  }
+
+  .product-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 10rem;
+    padding: 1rem;
   }
