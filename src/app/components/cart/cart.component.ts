@@ -2,6 +2,7 @@ import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CartItem } from 'src/models/cart_model';
 import { CartService } from 'src/services/cart.service';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -15,7 +16,7 @@ export class CartComponent implements OnChanges, OnInit {
   address = new FormControl()
   accNo = new FormControl()
 
-  constructor(private cartService: CartService){
+  constructor(private cartService: CartService, private router: Router){
     this.cart = this.cartService.viewCart()
     this.total = this.cartService.calculateTotal()
   }
@@ -32,6 +33,7 @@ export class CartComponent implements OnChanges, OnInit {
     this.cartService.clearCart()
     this.cart = this.cartService.viewCart()
     this.total = this.cartService.calculateTotal()
+    this.router.navigate(['/'])
   }
 
   confirmOrder(){
