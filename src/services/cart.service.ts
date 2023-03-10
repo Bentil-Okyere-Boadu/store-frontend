@@ -69,9 +69,10 @@ export class CartService {
   confirmOrder(): void {
     if(this.cart.length > 0){
       this.router.navigate(['/confirmation'])
+      this.clearCart()
     }
     else {
-      window.alert('Cart is empty.')
+      window.alert('Could not place order, cart is empty.')
     }
   }
 
