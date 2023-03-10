@@ -4,12 +4,13 @@
     </div>
     <div class="info">
         <div>
-            <h4>{{product.name}}</h4>
-            <a [routerLink]="['/product', product.id]">Details</a>
+            <h4>{{product.name}}</h4><br>
+            <button [routerLink]="['/cart']" class="view-cart">View Cart</button>
         </div>
         <div>
             <p>Price</p>
-            <p>{{product.price}}</p>
+            <p>{{product.price}}</p><br>
+            <a [routerLink]="['/product', product.id]">Details</a>
         </div>
         <div>
             <input type="number" min="0" class="select-input" [formControl]="quantity"/>

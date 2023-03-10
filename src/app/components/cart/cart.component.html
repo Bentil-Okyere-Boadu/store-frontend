@@ -1,14 +1,22 @@
-<div class="cart-container">
-    <div class="cart-items">
-        <p *ngIf="cart.length < 1" [ngStyle]="{'padding': '1.5rem'}">Cart is empty.</p>
-        <app-cart-item *ngFor="let product of cart" [product]="product"></app-cart-item>
-    </div>
-    <div class="inner-container">
-        <p>Total: {{total}}</p>
-        <div>
-            <button routerLink="/confirmation">Place Order</button>
-            <button class="cancel-btn" (click)="cancelOrder()">Cancel Order</button>
+<div class="cart-main">
+    <div class="cart-container">
+        <div class="cart-items">
+            <p *ngIf="cart.length < 1" [ngStyle]="{'padding': '1.5rem'}">Cart is empty.</p>
+            <app-cart-item *ngFor="let product of cart" [product]="product"></app-cart-item>
         </div>
     </div>
-    
+    <div class="form">
+        <div class="inner-container form-items">
+            <input type="text" placeholder="Name" class="" [formControl]="name"/>
+            <input type="text" placeholder="Address" class="" [formControl]="address"/>
+            <input type="text" placeholder="Account Number" class="" [formControl]="accNo"/>
+            <h3>Total: {{total}}</h3>
+        </div>
+        <div class="inner-container">
+            <div>
+                <button (click)="confirmOrder()">Place Order</button>
+                <button class="cancel-btn" (click)="cancelOrder()">Cancel Order</button>
+            </div>
+        </div>
+    </div>
 </div>

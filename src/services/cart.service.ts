@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CartItem } from 'src/models/cart_model';
 import { Product } from 'src/models/product_model';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,8 @@ export class CartService {
   cart: CartItem[] = [];
   total: number = 0;
 
+  constructor(private router: Router){}
+
   addToCart (product: Product, quantity: number): void {
     const total: number = this._itemTotal(product, quantity)
     
@@ -17,12 +20,20 @@ export class CartService {
       product, quantity, total
     }
 
-    if(this._checkProductIfExistsInCart(product)){
-      this.removeProductFromCart(product)
-      this.cart.push(item)
-    } else {
-      this.cart.push(item)
+    if(quantity > 0){
+      if(this._checkProductIfExistsInCart(product)){
+        this.removeProductFromCart(product)
+        this.cart.push(item)
+        window.alert('Product has been added to cart.')
+      } else {
+        this.cart.push(item)
+        window.alert('Product has been added to cart.')
+      }
+    } else{
+      window.alert('Product quantity cannot be 0')
     }
+
+    this.calculateTotal()
   }
 
   private _itemTotal (product: Product, quantity: number): number {
@@ -40,17 +51,28 @@ export class CartService {
   removeProductFromCart(product: Product): CartItem[] {
     const index: number = this.cart.findIndex(item => item.product.id === product.id)
     this.cart.splice(index, 1)
+    this.calculateTotal()
     return this.cart
   }
 
   calculateTotal(): number {
     let grandTotal: number = 0
     this.cart.forEach((item) => grandTotal += item.total)
+    this.total = grandTotal
     return grandTotal
   }
 
   clearCart(): void {
     this.cart = []
+  }
+
+  confirmOrder(): void {
+    if(this.cart.length > 0){
+      this.router.navigate(['/confirmation'])
+    }
+    else {
+      window.alert('Cart is empty.')
+    }
   }
 
 }

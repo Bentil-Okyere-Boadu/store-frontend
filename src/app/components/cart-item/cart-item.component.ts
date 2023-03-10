@@ -27,6 +27,7 @@ export class CartItemComponent {
   removeProduct() {
     this.cartService.removeProductFromCart(this.product.product)
     this.cartService.viewCart()
+    this.cartService.calculateTotal()
   }
 
   
