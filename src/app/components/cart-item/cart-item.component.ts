@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CartItem } from 'src/models/cart_model';
-import { CartService } from 'src/services/cart.service';
 
 @Component({
   selector: 'app-cart-item',
@@ -11,7 +10,7 @@ export class CartItemComponent {
   @Input() product: CartItem
   @Output() removeItem: EventEmitter<CartItem> = new EventEmitter()
 
-  constructor(private cartService: CartService){
+  constructor(){
     this.product = {
       product:{
         id: 0,
