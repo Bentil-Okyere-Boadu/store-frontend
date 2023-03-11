@@ -12,7 +12,7 @@
             <p>Cost: {{product.product.price}} x {{product.quantity}} = {{product.total}}</p>
         </div>
         <div class="cancel-btn">
-            <button (click)="removeProduct()">x</button>
+            <button (click)="removeItem.emit(product)">x</button>
         </div>
     </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CartItem } from 'src/models/cart_model';
 import { CartService } from 'src/services/cart.service';
 
@@ -9,6 +9,7 @@ import { CartService } from 'src/services/cart.service';
 })
 export class CartItemComponent {
   @Input() product: CartItem
+  @Output() removeItem: EventEmitter<CartItem> = new EventEmitter()
 
   constructor(private cartService: CartService){
     this.product = {
@@ -23,13 +24,5 @@ export class CartItemComponent {
       total: 0
     }
   }
-
-  removeProduct() {
-    this.cartService.removeProductFromCart(this.product.product)
-    this.cartService.viewCart()
-    this.cartService.calculateTotal()
-  }
-
-  
 
 }

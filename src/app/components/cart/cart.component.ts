@@ -30,4 +30,10 @@ export class CartComponent {
   confirmOrder(){
     this.cartService.confirmOrder()
   }
+
+  removeProduct(product: CartItem) {
+    this.cartService.removeProductFromCart(product.product)
+    this.total = this.cartService.calculateTotal()
+  }
+
 }
