@@ -7,9 +7,9 @@
     </div>
     <div class="form">
         <div class="inner-container form-items">
-            <input type="text" placeholder="Name" class="" [formControl]="name"/>
-            <input type="text" placeholder="Address" class="" [formControl]="address"/>
-            <input type="text" placeholder="Account Number" class="" [formControl]="accNo"/>
+            <input type="text" placeholder="Name" class="" [(ngModel)]="name"/>
+            <input type="text" placeholder="Address" class="" [(ngModel)]="address"/>
+            <input type="number" placeholder="Account Number" class="" [(ngModel)]="accNo"/>
             <h3>Total: {{total}}</h3>
         </div>
         <div class="inner-container">

@@ -1,7 +1,6 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component } from '@angular/core';
 import { CartItem } from 'src/models/cart_model';
 import { CartService } from 'src/services/cart.service';
-import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,24 +8,16 @@ import { Router } from '@angular/router';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnChanges, OnInit {
+export class CartComponent {
   cart: CartItem[]
   total: number= this.cartService.calculateTotal()
-  name = new FormControl()
-  address = new FormControl()
-  accNo = new FormControl()
+  name: string = ''
+  address: string = ''
+  accNo: string = ''
 
   constructor(private cartService: CartService, private router: Router){
     this.cart = this.cartService.viewCart()
     this.total = this.cartService.calculateTotal()
-  }
-
-  ngOnInit(): void {
-    
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-
   }
 
   cancelOrder() {

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CartItem } from 'src/models/cart_model';
 import { Product } from 'src/models/product_model';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class CartService {
   cart: CartItem[] = [];
   total: number = 0;
 
-  constructor(private router: Router){}
+  constructor(private router: Router, private toastr: ToastrService){}
 
   addToCart (product: Product, quantity: number): void {
     const total: number = this._itemTotal(product, quantity)
@@ -24,13 +25,13 @@ export class CartService {
       if(this._checkProductIfExistsInCart(product)){
         this.removeProductFromCart(product)
         this.cart.push(item)
-        window.alert('Product has been added to cart.')
+        this.toastr.success('Product has been added to cart.')
       } else {
         this.cart.push(item)
-        window.alert('Product has been added to cart.')
+        this.toastr.success('Product has been added to cart.')
       }
     } else{
-      window.alert('Product quantity cannot be 0')
+      this.toastr.error('Product quantity cannot be 0')
     }
 
     this.calculateTotal()
@@ -52,6 +53,7 @@ export class CartService {
     const index: number = this.cart.findIndex(item => item.product.id === product.id)
     this.cart.splice(index, 1)
     this.calculateTotal()
+    this.toastr.success('Product has been removed from cart.')
     return this.cart
   }
 
@@ -72,7 +74,7 @@ export class CartService {
       this.clearCart()
     }
     else {
-      window.alert('Could not place order, cart is empty.')
+      this.toastr.error('Could not place order, cart is empty.')
     }
   }
 
