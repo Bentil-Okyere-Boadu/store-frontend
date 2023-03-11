@@ -1,12 +1,28 @@
 # Store Front
 
-This project is a simple e-commerce website. It was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.2.
+This project is a simple e-commerce website. 
+Users are able to add products to cart, view details of products, edit cart and place orders for products selected.
+
+<img src="src/assets/images/Screenshot.png" alt="Logo" width="400" height="">
 
 
 ## Getting started
-1. Run     `npm install` to install all packages.
-2. Run `npm run start` or `ng serve` for a dev server. 
-3. Open `http://localhost:4200/` in your prefered browser to view application.
+
+### Prerequisites
+
+You should have `npm` installed on your machine.
+
+### Installation
+1. Clone or fork project.
+2. Run `npm install` to install all packages.
+3. Run `npm run start` or `ng serve` to start development server. Server runs on `http://localhost:4200/`  
+4. Open `http://localhost:4200/` in your prefered browser to view application.
+
+### Built With
+
+[![Angular][Angular.io]][Angular-url]
+
+
 
 ## Build
 
