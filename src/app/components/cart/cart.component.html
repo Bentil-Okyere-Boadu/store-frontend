@@ -7,14 +7,14 @@
     </div>
     <div class="form">
         <div class="inner-container form-items">
-            <input type="text" placeholder="Name" class="" [(ngModel)]="name"/>
-            <input type="text" placeholder="Address" class="" [(ngModel)]="address"/>
-            <input type="number" placeholder="Account Number" class="" [(ngModel)]="accNo"/>
+            <input type="text" placeholder="Name" class="" [(ngModel)]="name" (ngModelChange)="nameChanged($event)" #nameInput="ngModel"/>
+            <input type="text" placeholder="Address" class="" [(ngModel)]="address" (ngModelChange)="addressChanged($event)" #addressInput="ngModel"/>
+            <input type="number" placeholder="Account Number" [(ngModel)]="accNo" (ngModelChange)="accChanged($event)" #accInput="ngModel"/>
             <h3>Total: {{total}}</h3>
         </div>
         <div class="inner-container">
             <div>
-                <button (click)="confirmOrder()">Place Order</button>
+                <button [disabled]="nameInput.value !== '' && addressInput.value !== '' && accInput.value !== ''? false:true" (click)="confirmOrder()">Place Order</button>
                 <button class="cancel-btn" (click)="cancelOrder()">Cancel Order</button>
             </div>
         </div>

@@ -13,7 +13,7 @@ export class CartComponent {
   total: number= this.cartService.calculateTotal()
   name: string = ''
   address: string = ''
-  accNo: string = ''
+  accNo!: number
 
   constructor(private cartService: CartService, private router: Router){
     this.cart = this.cartService.viewCart()
@@ -36,4 +36,15 @@ export class CartComponent {
     this.total = this.cartService.calculateTotal()
   }
 
+  nameChanged(value: string){
+     this.name = value
+  }
+
+  addressChanged(value: string){
+    this.address = value
+  }
+
+  accChanged(value: number){
+    this.accNo = value
+  }
 }
